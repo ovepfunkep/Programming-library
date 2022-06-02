@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="https://img.icons8.com/doodle/console">
+        <title>Test</title>    
+    </head>
+    <body>
+        <header>
+            <a href="variables.html">Variables</a>
+            <a href="cycles.html">Cycles</a>
+            <a href="oop.html" style = "border: 0;">OOP</a>
+            <a href="index.html" style = "border: 0;"><img src="logo.png"></a>
+            <a href="styles.html">Styles</a>
+            <a href="programs.html">Programs</a>
+            <a href="test.html" style="color: rgb(199, 255, 194)">Test</a>
+        </header>
+        <content>
+            <h1>TEST</h1>
+            <h3>1.Что такое переменная, относительно данных этого сайта?</h3>
+            <input type="text" id="question0">
+            <h3>2.С помощью чего можно организовать многократное исполнение одинакового кода с незначительными изменениями?</h3>
+            <input type="text" id="question1">
+            <h3>3.Сколько принято считать базовых принципов ООП?</h3>
+            <input type="text" id="question2">
+            <h3>4.Какой принцип ООП отвечает за объединение данных в одну пилюлю?</h3>
+            <input type="text" id="question3">
+            <h3>5.Какой принцип отвечает за независимую типизацию данных?</h3>
+            <input type="text" id="question4">
+            <h3>6.Какой принцип ещё не был назван?</h3>
+            <input type="text" id="question5">
+            <h3>7.Назовите один любой стиль со вкладки "Styles"?</h3>
+            <input type="text" id="question6">
+            <h3>8.Аббревиатура программы в которой можно скомпелировать программу?</h3>
+            <input type="text" id="question7">
+            <h3>9.Как называется сайт?</h3>
+            <input type="text" id="question8">
+            <h3>10.Сколько тебе лет?</h3>
+            <input type="text" id="question9">
+            <buttons>
+                <up><a href="#top">Up</a></up>
+                <button onclick="check();">Submit answers</button>
+                <script>
+                    function check() {
+                        let rightAnswers = [
+                            ["именованное хранилище"],
+                            ["цикл","циклов","циклы"],
+                            ["3"],
+                            ["инкапсуляция"],
+                            ["полиморфизм"],
+                            ["наследование"],
+                            ["императивный","процедурный","функциональный","объектно-ориентированный","декларативный"],
+                            ["ide"],
+                            ["programming library"],
+                            ["16"]
+                        ]
+                        let countRight = 0;
+                        let takenAnswer = "";
+                        for (let i = 0; i < 10; i++)
+                        {
+                            takenAnswer = document.getElementById(`question${i}`).value;
+                            let flag = 0;
+                            if (takenAnswer === "") document.getElementById(`question${i}`).value =`${document.getElementById(`question${i}`).value} x`;
+                            else 
+                            for (let j = 0; j < rightAnswers[i].length; j++)
+                            {
+                                if (i===9) 
+                                    if (parseInt(rightAnswers[9][0]) > document.getElementById(`question9`)) document.getElementById(`question9`).value +=" x";
+                                    else 
+                                    {
+                                        countRight++;
+                                        document.getElementById(`question9`).value +=" √";
+                                    }
+                                else if (takenAnswer.toLowerCase() === rightAnswers[i][j] && flag===0) 
+                                {
+                                    countRight++;
+                                    flag++;
+                                    document.getElementById(`question${i}`).value +=" √";
+                                }
+                                else if (j===rightAnswers[i].length-1 && flag===0) document.getElementById(`question${i}`).value +=" x";
+                            }
+                        }
+                        alert(`You've done ${countRight} right answers!`);
+                    }
+                </script>
+            </buttons>
+        </content>
+        <footer>
+            Copyright Bezperspectivniak corp.
+            Designed by <a href="http://vk.com/awfultthing" target="_blank">Desfia</a>,
+            created by <a href="http://vk.com/ovepfunkep" target="_blank">Ovepfunkep</a>.
+        </footer>
+    </body>
+</html>
